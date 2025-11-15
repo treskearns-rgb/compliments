@@ -2,34 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Compliments</title>
+    <title>Compliments ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* General layout */
         body {
             font-family: "Times New Roman", serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #fceabb, #f8b500);
+            color: #333;
             text-align: center;
-            margin-top: 50px;
+            padding: 20px;
+            transition: background 0.5s;
         }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        /* Button styling */
         button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin-top: 20px;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff6f61;
+            color: white;
             cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Compliment text */
         p {
-            font-size: 16px;
-            margin-top: 20px;
+            font-size: 1.1em;
             max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-top: 30px;
+            line-height: 1.4;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        p.visible {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <h1>Click the button for a compliment! ❤️</h1>
+    <h1>Click for a Compliment! ❤️</h1>
     <button id="btn">Get Compliment</button>
-    <p id="output">Press the button to see a compliment.</p>
+    <p id="output">Your compliment will appear here.</p>
 
     <script>
+        // Compliments array
         const compliments = [
             "I know you're a great person not just because of the way you are, but by the way you make others around you the best versions of themselves. I'm a living example of that.",
             "From the little gap in your teeth, to the way your cheeks curve when you smile, to the way your hair falls; all of it. All of it will forever be the most beautifully gorgeously irresistible indescribable kind of perfect to me.",
@@ -50,9 +86,25 @@
             "I hope you know how deeply loved you are, not because of what you do, but because of who you are."
         ];
 
-        document.getElementById("btn").addEventListener("click", function() {
-            const randomIndex = Math.floor(Math.random() * compliments.length);
-            document.getElementById("output").textContent = compliments[randomIndex];
+        const btn = document.getElementById("btn");
+        const output = document.getElementById("output");
+        const body = document.body;
+
+        btn.addEventListener("click", () => {
+            // Pick a random compliment
+            const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+
+            // Fade out old text
+            output.classList.remove("visible");
+
+            // Change background color slightly each time
+            body.style.background = `hsl(${Math.floor(Math.random()*360)}, 70%, 85%)`;
+
+            // Wait for fade-out, then update text and fade in
+            setTimeout(() => {
+                output.textContent = compliment;
+                output.classList.add("visible");
+            }, 250);
         });
     </script>
 </body>
