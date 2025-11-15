@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compliments</title>
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        p {
+            font-size: 16px;
+            margin-top: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the button for a compliment! ❤️</h1>
+    <button id="btn">Get Compliment</button>
+    <p id="output">Press the button to see a compliment.</p>
+
+    <script>
+        const compliments = [
+            "I know you're a great person not just because of the way you are, but by the way you make others around you the best versions of themselves. I'm a living example of that.",
+            "From the little gap in your teeth, to the way your cheeks curve when you smile, to the way your hair falls; all of it. All of it will forever be the most beautifully gorgeously irresistible indescribable kind of perfect to me.",
+            "Quick! What's 5x2?",
+            "Laughing became so easy after I met you.",
+            "You are THE best gift giver I know. Creative, meaningful, silly; your presents really do check all the boxes.",
+            "You're genuinely thoughtful.",
+            "Your smile makes me smile.",
+            "You are capable of soooooooo much...",
+            "I will never play the lottery because I already hit the jackpot meeting you...",
+            "You saved me.",
+            "You're worth everything to me.",
+            "You make the mundane look attractive.",
+            "Talking to you is what I look forward to everyday.",
+            "You feel like Winter.",
+            "You feel like Spring.",
+            "You’re the best thing that has ever happened to me.",
+            "I hope you know how deeply loved you are, not because of what you do, but because of who you are."
+        ];
+
+        document.getElementById("btn").addEventListener("click", function() {
+            const randomIndex = Math.floor(Math.random() * compliments.length);
+            document.getElementById("output").textContent = compliments[randomIndex];
+        });
+    </script>
+</body>
+</html>
