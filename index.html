@@ -14,11 +14,10 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #fceabb, #f8b500);
+            background: #FFD6E8; /* soft pastel pink */
             color: #333;
             text-align: center;
             padding: 20px;
-            transition: background 0.5s;
         }
 
         h1 {
@@ -32,7 +31,7 @@
             padding: 15px 30px;
             border: none;
             border-radius: 10px;
-            background-color: #ff6f61;
+            background-color: #FF3B3B; /* bright red */
             color: white;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -49,7 +48,8 @@
             font-size: 1.1em;
             max-width: 400px;
             margin-top: 30px;
-            line-height: 1.4;
+            line-height: 1.5;
+            font-style: italic; /* slightly romantic style */
             opacity: 0;
             transition: opacity 0.5s;
         }
@@ -57,38 +57,39 @@
         p.visible {
             opacity: 1;
         }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #666;
+        }
     </style>
 </head>
 <body>
-    <h1>Click for a Compliment! ❤️</h1>
+    <h1>Click for a Compliment ❤️</h1>
     <button id="btn">Get Compliment</button>
     <p id="output">Your compliment will appear here.</p>
+
+    <footer>made with love</footer>
 
     <script>
         // Compliments array
         const compliments = [
-            "I know you're a great person not just because of the way you are, but by the way you make others around you the best versions of themselves. I'm a living example of that.",
-            "From the little gap in your teeth, to the way your cheeks curve when you smile, to the way your hair falls; all of it. All of it will forever be the most beautifully gorgeously irresistible indescribable kind of perfect to me.",
-            "Quick! What's 5x2?",
-            "Laughing became so easy after I met you.",
-            "You are THE best gift giver I know. Creative, meaningful, silly; your presents really do check all the boxes.",
-            "You're genuinely thoughtful.",
-            "Your smile makes me smile.",
-            "You are capable of soooooooo much...",
-            "I will never play the lottery because I already hit the jackpot meeting you...",
-            "You saved me.",
-            "You're worth everything to me.",
-            "You make the mundane look attractive.",
-            "Talking to you is what I look forward to everyday.",
-            "You feel like Winter.",
-            "You feel like Spring.",
-            "You’re the best thing that has ever happened to me.",
-            "I hope you know how deeply loved you are, not because of what you do, but because of who you are."
+            "I love the way you make everyone around you feel special.",
+            "Your smile could light up the darkest room.",
+            "You have a heart that's impossible not to adore.",
+            "Being near you makes every moment brighter.",
+            "The little things you do make a world of difference.",
+            "You are truly unforgettable in every way.",
+            "Your laughter is my favorite sound in the world.",
+            "You inspire me to be better just by being yourself.",
+            "I hope you know how deeply loved you are, always.",
+            "You make ordinary days feel extraordinary."
         ];
 
         const btn = document.getElementById("btn");
         const output = document.getElementById("output");
-        const body = document.body;
 
         btn.addEventListener("click", () => {
             // Pick a random compliment
