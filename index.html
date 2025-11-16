@@ -164,6 +164,53 @@
                 output.classList.add("visible");
             }, 250);
         });
+        <script>
+let lastX = 0, lastY = 0, lastZ = 0;
+let shakeSensitivity = 15; // lower = more sensitive
+let lastShakeTime = 0;
+
+if (window.DeviceMotionEvent) {
+    window.addEventListener("devicemotion", function(event) {
+        let acc = event.accelerationIncludingGravity;
+        if (!acc) return;
+
+        let x = acc.x;
+        let y = acc.y;
+        let z = acc.z;
+
+        let deltaX = Math.abs(x - lastX);
+        let deltaY = Math.abs(y - lastY);
+        let deltaZ = Math.abs(z - lastZ);
+
+        let totalShake = deltaX + deltaY + deltaZ;
+
+        // prevents it from triggering repeatedly
+        let now = Date.now();
+        if (totalShake > shakeSensitivity && (now - lastShakeTime) > 1200) {
+            lastShakeTime = now;
+            showShakeSurprise();
+        }
+
+        lastX = x;
+        lastY = y;
+        lastZ = z;
+    });
+}
+
+// You can customize what happens here!
+function showShakeSurprise() {
+    const surprises = [
+        "You shook the phone… are you trying to get my attention? ❤️",
+        "Surprise! I love your face.",
+        "You’re adorable, you know that?",
+        "I hope you know you’re the best part of my day.",
+        "Shake detected! Here’s a kiss 😘"
+    ];
+
+    let message = surprises[Math.floor(Math.random() * surprises.length)];
+    alert(message);
+}
+</script>
     </script>
 </body>
 </html>
